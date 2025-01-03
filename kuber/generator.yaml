@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: tp2_cloud:playlist-rules
+  name: playlist-rules
   namespace: lucasmaia
 spec:
   template:
     metadata:
       labels:
-        app: tp2_cloud:playlist-rules
+        app: playlist-rules
     spec:
       containers:
-        - name: tp2_cloud:playlist-rules
+        - name: playlist-rules
           image: lucasmaia96/tp2_cloud:playlist-rules
           volumeMounts:
             - name: shared-volume
