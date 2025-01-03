@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: playlist_rules_generator
+  namespace: lucasmaia
+spec:
+  template:
+    metadata:
+      labels:
+        app: playlist_rules_generator
+    spec:
+      containers:
+        - name: playlist_rules_generator
+          image: lucasmaia96/tp2_cloud:playlist-rules
+          volumeMounts:
+            - name: shared-volume
+              mountPath: /mnt/shared
+      restartPolicy: Never
+      volumes:
+        - name: shared-volume
+          persistentVolumeClaim:
+            claimName: project2-pv2-lucasmaia-claim
