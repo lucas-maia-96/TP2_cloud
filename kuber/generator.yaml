@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: playlist-rules
-          image: lucasmaia96/tp2_cloud:playlist-rules
+          image: lucasmaia96/playlist-rules-generator:01
           volumeMounts:
             - name: shared-volume
               mountPath: /mnt/shared
