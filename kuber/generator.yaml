@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: playlist-rules
+  name: playlist-rules-generator
   namespace: lucasmaia
 spec:
   template:
     metadata:
       labels:
-        app: playlist-rules
+        app: playlist-rules-generator
     spec:
       containers:
-        - name: playlist-rules
+        - name: playlist-rules-generator
           image: lucasmaia96/playlist-rules-generator:01
           volumeMounts:
             - name: shared-volume
