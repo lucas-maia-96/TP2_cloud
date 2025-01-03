@@ -5,8 +5,6 @@ from collections import OrderedDict
 
 app = Flask(__name__)
 
-
-
 def load_model(path):
 
     with open(path, "rb") as f:
@@ -17,8 +15,20 @@ def load_model(path):
 
 app.model = load_model('rules.pkl')
 
-def recommend_songs(songs, rules, n=5, max_rules = 1000000000):
+
+
+@app.route("/api/recommend", methods=["POST"])
+def recommend():
+    max_rules = 1000000000
+    data = request.get_json()
+    songs = data["songs"]
+
     recommended_songs = []
+
+    if app.model:
+        rules = app.model
+    
+
 
     for i, rule in enumerate(rules):
         if i == max_rules:
@@ -33,20 +43,8 @@ def recommend_songs(songs, rules, n=5, max_rules = 1000000000):
     recommended_songs.sort(key=lambda x: x[1], reverse=True)
 
     unique = list(OrderedDict.fromkeys(song for item, _ in recommended_songs for song in item))
-    
-    return unique
 
-
-
-@app.route("/api/recommend", methods=["POST"])
-def recommend():
-    data = request.get_json()
-    songs = data["songs"]
-
-    recommended_songs = recommend_songs(songs, app.model)
-
-
-    response = {"songs": recommended_songs}
+    response = {"songs": unique}
 
     return jsonify(response)
 
