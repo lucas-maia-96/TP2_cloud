@@ -1,7 +1,7 @@
 import requests
 
 # URL do seu servidor Flask (substitua pelo endereço correto)
-url = "http://127.0.0.1:52046/api/recommend"
+url = "http://127.0.0.1:5000/api/recommend"
 
 musicas_entrada = ["Purpose", "Sorry", "Into You", "Save Your Tears"]
 dados = {"songs": musicas_entrada}
