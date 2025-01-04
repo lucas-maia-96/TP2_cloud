@@ -7,7 +7,7 @@ import pickle
 def read_dataset(path):
     playlist_baskets = []
 
-    for chunk in pd.read_csv(path, chunksize=50000):
+    for chunk in pd.read_csv(path, chunksize=500):
         basket = chunk.groupby("pid")["track_name"].apply(list).tolist()
         playlist_baskets.extend(basket)
 

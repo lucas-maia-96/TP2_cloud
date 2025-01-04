@@ -8,8 +8,8 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-VERSION = "1.0.0"
-MODELPATH = "rules.pkl"
+VERSION = "1.0.3"
+MODELPATH = "../mnt/shared/rules.pkl"
 MODEL_DATE = datetime.fromtimestamp(os.path.getmtime(MODELPATH)).strftime(
     "%Y-%m-%d %H:%M:%S"
 )
@@ -76,5 +76,5 @@ def recommend():
 
 
 if __name__ == "__main__":
-    app.model = load_model("rules.pkl")
+    app.model = load_model("../mnt/shared/rules.pkl")
     app.run(debug=True, host="0.0.0.0", port=52046)
