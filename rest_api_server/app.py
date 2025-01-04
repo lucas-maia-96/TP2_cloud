@@ -29,7 +29,7 @@ def load_model(path):
     return model
 
 
-app.model = load_model("rules.pkl")
+app.model = load_model("../mnt/shared/rules.pkl")
 
 
 @app.route("/api/recommend", methods=["POST"])

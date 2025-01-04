@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: rest-api-server
-        image: lucasmaia96/rest-api-server:03
+        image: lucasmaia96/rest-api-server:04
         ports:
         - containerPort: 52046
         volumeMounts:
