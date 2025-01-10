@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: playlist-rules-generator
-          image: lucasmaia96/playlist-rules-generator:05
+          image: lucasmaia96/playlist-rules-generator:06
           volumeMounts:
             - name: shared-volume
               mountPath: /mnt/shared
