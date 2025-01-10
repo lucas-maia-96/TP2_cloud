@@ -14,7 +14,7 @@ def read_dataset(path):
     return playlist_baskets
 
 
-def generate_rules(playlist_baskets, min_support=0.02, min_confidence=0.4):
+def generate_rules(playlist_baskets, min_support=0.05, min_confidence=0.4):
     freqItemSet, rules = fpgrowth(
         playlist_baskets, minSupRatio=min_support, minConf=min_confidence
     )
